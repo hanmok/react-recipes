@@ -50,9 +50,8 @@ export default function Search() {
                 <RecipeList
                     recipes={data.filter(recipe => {
                         const lowerRecipe = recipe.title.toLowerCase();
-                        const lowerQuery = query.toLowerCase();
+                        const lowerQuery = query ? query.toLowerCase() : "";
                         return lowerRecipe.includes(lowerQuery);
-                        // recipe.title.includes(query)
                     })}
                 />
             )}
