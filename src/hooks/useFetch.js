@@ -6,6 +6,7 @@ export const useFetch = (url, method = "GET") => {
     const [error, setError] = useState(null);
     const [options, setOptions] = useState(null);
 
+    // 전송할 데이터를 설정. POST 요청 할 때 사용됨.
     const postData = postData => {
         setOptions({
             method: "POST",
@@ -19,6 +20,7 @@ export const useFetch = (url, method = "GET") => {
     useEffect(() => {
         const controller = new AbortController();
 
+        // 에트워크 요청을 수행하는 함수. fetch API 를 이용하여 데이터를 가져오거나 전송.
         const fetchData = async fetchOptions => {
             setIsPending(true);
 
@@ -52,7 +54,7 @@ export const useFetch = (url, method = "GET") => {
         if (method === "POST" && options) {
             fetchData(options);
         }
-
+        // 언마운트 될 때 네트워크 요청 취소
         return () => {
             controller.abort();
         };

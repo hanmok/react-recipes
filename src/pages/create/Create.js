@@ -1,5 +1,4 @@
 import "./Create.css";
-// import { useState } from "react";
 import React, { useEffect, useRef, useState } from "react";
 import { useFetch } from "../../hooks/useFetch";
 import { useNavigate } from "react-router-dom";
